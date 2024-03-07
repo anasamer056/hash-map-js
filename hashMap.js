@@ -29,8 +29,8 @@ export default class HashMap {
         curr = curr.next;
         count++;
       }
-      return count;
     }
+    return count;
   }
 
   set(key, value) {
