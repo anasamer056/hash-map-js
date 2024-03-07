@@ -35,14 +35,25 @@ export default class HashMap {
   set(key, value) {
     if (!key) return new Error("Key can't be null");
 
-    if (this.load > this.loadFactor) {
-      // Grow the capacity
-    }
     const hashCode = this.hash(key);
 
     if (this.has(key)) this.remove(key);
-    
+
     this.insertAt(hashCode, new Node(key, value));
+
+    if (this.load > this.loadFactor) {
+      this.growCapacity()
+    }
+  }
+
+  growCapacity(){
+    this.capacity *= 2;
+    const entries = this.entries();
+    this.clear();
+    for (let entry of entries){
+      this.set(entry[0], entry[1]);
+    }
+    console.log("Capacity doubled. Current capacity: ", this.capacity)
   }
 
   insertAt(index, node) {
@@ -141,6 +152,6 @@ export default class HashMap {
   }
 
   get load() {
-    this.length / this.capacity;
+    return this.length / this.capacity;
   }
 }
