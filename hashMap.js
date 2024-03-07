@@ -79,6 +79,16 @@ export default class HashMap {
     return res;
   }
 
+  keys(){
+    const entries = this.entries();
+    return entries.map(node=>node[0]);
+  }
+
+  values(){
+    const entries = this.entries();
+    return entries.map(node=>node[1]);
+  }
+
   get(key) {
     if (!key || !this.data[this.hash(key)]) return null;
 
