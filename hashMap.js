@@ -40,6 +40,8 @@ export default class HashMap {
     }
     const hashCode = this.hash(key);
 
+    if (this.has(key)) this.remove(key);
+    
     this.insertAt(hashCode, new Node(key, value));
   }
 
