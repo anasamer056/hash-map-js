@@ -1,4 +1,4 @@
-import Node from "./node.js";
+import MapNode from "./mapNode.js";
 
 export default class HashMap {
   data = [];
@@ -39,7 +39,7 @@ export default class HashMap {
 
     if (this.has(key)) this.remove(key);
 
-    this.insertAt(hashCode, new Node(key, value));
+    this.insertAt(hashCode, new MapNode(key, value));
 
     if (this.load > this.loadFactor) {
       this.growCapacity()
