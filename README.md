@@ -59,7 +59,7 @@ const hashSet = new HashSet();
 4. Start using the HashSet by adding elements, checking for element existence, or removing elements:
 
 ```javascript
-hashSet.add('element');
+hashSet.set('element');
 console.log(hashSet.has('element')); // Output: true
 
 hashSet.delete('element');
@@ -72,10 +72,6 @@ Refer to the [API section](#api) for detailed documentation of the `HashSet` cla
 
 ### `HashMap` class
 
-#### Constructor
-
-- `HashMap(capacity: number, loadFactor: number)`: Constructs a new HashMap instance. Optionally, you can specify the initial capacity and load factor. Default values are `16` for capacity and `0.75` for the load factor.
-
 #### Methods
 
 - `set(key: string, value: any)`: Sets the value associated with the specified key.
@@ -83,6 +79,7 @@ Refer to the [API section](#api) for detailed documentation of the `HashSet` cla
 - `has(key: string): boolean`: Returns `true` if the HashMap contains the specified key, otherwise `false`.
 - `remove(key: string): boolean`: Removes the key-value pair associated with the specified key.
 - `clear()`: Removes all key-value pairs from the HashMap.
+- `entries(): Array<Array>`: Returns an array containing sub arrays of [`key`, `value`], representing all keys and values in the HashMap.
 - `keys(): Array<string>`: Returns an array containing all keys in the HashMap.
 - `values(): Array<any>`: Returns an array containing all values in the HashMap.
 - `length: number`: Returns the number of key-value pairs stored in the HashMap.
@@ -90,15 +87,11 @@ Refer to the [API section](#api) for detailed documentation of the `HashSet` cla
 
 ### `HashSet` class
 
-#### Constructor
-
-- `HashSet(capacity: number, loadFactor: number)`: Constructs a new HashSet instance. Inherits from `HashMap`. 
-
 #### Methods
 
-- `add(key: string)`: Adds the specified key to the HashSet.
+- `set(key: string)`: Adds the specified key to the HashSet.
 - `has(key: string): boolean`: Returns `true` if the HashSet contains the specified key, otherwise `false`.
-- `delete(key: string): boolean`: Removes the specified key from the HashSet.
+- `remove(key: string): boolean`: Removes the specified key from the HashSet.
 - `clear()`: Removes all keys from the HashSet.
 - `keys(): Array<string>`: Returns an array containing all keys in the HashSet.
 - `length: number`: Returns the number of keys stored in the HashSet.
